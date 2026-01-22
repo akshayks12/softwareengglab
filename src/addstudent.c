@@ -1,8 +1,13 @@
-#include "student.h"
+#include "addstudent.h"
 student *head = NULL;
 void addstudent(student data)
  {
   student *newstudent = malloc(sizeof(student));
+  if(newstudent == NULL)
+   {
+    printf("memmory allocation failed");
+    return;
+   }
   *newstudent = data;
   newstudent->next = NULL;
   

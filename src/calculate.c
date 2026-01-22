@@ -1,4 +1,5 @@
-#include "student.h"
+#include "calculate.h"
+//calculates the grades of student based on their minor and major marks
 void calculategrade(int i,student *temp,float total)
  {
   if(total < 50)
@@ -42,6 +43,7 @@ void calculategrade(int i,student *temp,float total)
    temp->subjects[i].points=10;
    }
  }
+ //calculates the total marks by adding minor and major marks
 void calculatetotal(student *data)
  {
  float totalpoints =0;

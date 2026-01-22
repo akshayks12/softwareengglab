@@ -1,4 +1,9 @@
 #include"student.h"
+#include"calculate.h"
+#include"analysis.h"
+#include"addstudent.h"
+#include"validate.h"
+#include"displaydata.h"
 int main(int argc,char *argv[])
  {
   if(argc != 2)
@@ -13,11 +18,16 @@ int main(int argc,char *argv[])
     printf("input a valid input file \n");
     return 1;
     }
-    char buffer[256];
+    char buffer[256],line[256];
     student temp;
   while(fgets(buffer,sizeof(buffer),fp1))
    {
-    sscanf(buffer,"%s %s %f %f %f %f %f %f %f %f %f %f",temp.rollno ,temp.name ,&temp.subjects[0].minor ,&temp.subjects[0].major ,&temp.subjects[1].minor ,&temp.subjects[1].major ,&temp.subjects[2].minor ,&temp.subjects[2].major ,&temp.subjects[3].minor ,&temp.subjects[3].major ,&temp.subjects[4].minor ,&temp.subjects[4].major);
+    sscanf(buffer,"%s %[^\n]",temp.rollno ,temp.name);
+    for(int i=0;i<5;i++)
+     {
+      fgets(line,sizeof(line),fp1);
+      sscanf(line,"%s %f %f",temp.subjects[i].name,&temp.subjects[i].minor,&temp.subjects[i].major);
+     }
     if(validate(temp))
      {
       calculatetotal(&temp);
@@ -28,10 +38,16 @@ int main(int argc,char *argv[])
       printf("skipped line with rollno %s \n \n",temp.rollno);
      }
    }
+   if(head == NULL)
+    {
+     printf("no student record detected");
+    }
+   else{
    displaydata(fp2,head);
    classaverage(fp2,head);
    findminandmax(fp2,head);
    countgrades(fp2,head);
    fclose(fp1);
    fclose(fp2);
+   }
  }

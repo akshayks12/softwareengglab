@@ -1,4 +1,5 @@
-#include"student.h"
+#include"analysis.h"
+//calculate the class average total cgpa by no of students
 void classaverage(FILE *fp2,student *head)
  {
  float total=0,average=0;
@@ -13,7 +14,7 @@ void classaverage(FILE *fp2,student *head)
    average = total/n;
   fprintf(fp2,"classaverage of average of  students = %f \n",average);
  }
- 
+ //finds ths minimum and maximum marks obtained by students with their roll no
  void findminandmax(FILE *fp2,student *head)
   {
    student *min = head;
@@ -23,7 +24,7 @@ void classaverage(FILE *fp2,student *head)
     {
      if(temp->cgpa < min->cgpa)
       min = temp;
-     if(temp->cgpa > min->cgpa)
+     if(temp->cgpa > max->cgpa)
       max = temp;
       
       temp = temp->next;
@@ -31,6 +32,7 @@ void classaverage(FILE *fp2,student *head)
     fprintf(fp2,"%s has maximum cgpa of %f \n",max->rollno,max->cgpa);
     fprintf(fp2,"%s has minimum cgpa of %f \n",min->rollno,min->cgpa);
   }
+  //computes the no of students in each grade
  void countgrades(FILE *fp2,student *head)
   {
    int a=0,o=0,ap=0,b=0,bp=0,c=0,d=0,f=0;

@@ -7,6 +7,7 @@
 #include<ctype.h>
 
 typedef struct{
+ char name[20];
  float minor;
  float major;
  float total;
@@ -22,11 +23,4 @@ typedef struct student{
   struct student *next;
 }student;
 extern student *head;
-int validate(student data);
-void calculatetotal(student *data);
-void addstudent(student data);
-void displaydata(FILE *fp2,student *head);
-void classaverage(FILE *fp2,student *head);
-void findminandmax(FILE *fp2,student *head);
-void countgrades(FILE *fp2,student *head);
 #endif

@@ -1,4 +1,5 @@
-#include"student.h"
+#include"validate.h"
+//checks weather its a rollno or not checks if it is alphanumeric no special characters allowed
 int validaterollno(char *rollno)
  {
   int len = strlen(rollno);
@@ -14,7 +15,8 @@ int validaterollno(char *rollno)
    }
    return 1;
  }
- int duplicate(char *rollno)
+ //checks for duplicate rollno
+ int duplicate(student *head,char *rollno)
   {
   student *temp = head;
    while(temp != NULL)
@@ -25,13 +27,14 @@ int validaterollno(char *rollno)
     }
     return 0;
   }
+  //validates the name name should only contain alphabets
  int validatename(char *name)
  {
   int len = strlen(name);
   int i=0;
   while(i<len)
    {
-    if(isalnum(name[i])||name[i] == ' ')
+    if(isalpha(name[i])||name[i] == '.'||name[i] == ' ')
      {
       i++;
      }
@@ -40,6 +43,7 @@ int validaterollno(char *rollno)
    }
    return 1;
  }
+ //checks weather the marks are valid or not the minor marks should be below 40 and major marks above 60
 int validmarkminor(float mark)
  {
   if(mark <= 40)
@@ -63,7 +67,7 @@ int validate(student data)
     printf("wrong rollno detected please change it \n");
     return 0;
    }
-  if(duplicate(data.rollno))
+  if(duplicate(head,data.rollno))
    {
     printf("duplicate rollno detected please change it \n");
     return 0;
