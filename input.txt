@@ -1,0 +1,30 @@
+25mcmi01 uday kiran
+dsp 20 30
+itlab 35 40
+algo 25 45
+psm 30 50
+krr 38 55
+25mcmi02 Akshay k s
+dsp 15 20
+itlab 25 35
+algo 30 45
+psm 10 50
+krr 35 40
+25mcmi03 sachin a
+dsp 30 40
+itlab 20 30
+algo 25 50
+psm 35 55
+krr 10 20
+25mcmi04 kashyap
+dsp 25 30
+itlab 30 40
+algo 35 50
+psm 20 30
+krr 38 45
+25mcmi05 deekshith
+dsp 30 35
+itlab 28 40
+algo 20 25
+psm 15 30
+krr 38 50
